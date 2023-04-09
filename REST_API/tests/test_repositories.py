@@ -7,6 +7,6 @@ class TestRepositories(unittest.TestCase):
     def test_get_all_products(self):
         db = DBConnection(testing_conf)
         self.assertIsNone(db.connect())
-        right_res = [("Philips monitor 17”",)]
+        right_res = [(1, "Philips monitor 17”")]
         res = ProductRepository.get_all_product_names(db)
         self.assertEqual(res, right_res)        
