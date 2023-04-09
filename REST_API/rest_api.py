@@ -14,7 +14,11 @@ class REST_API(Flask):
         print("Connected to the database")
         
         
-        @self.route('/products_names')
+        @self.route('/products_names', methods=['GET'])
         def index():
             return ProductRepository.get_all_product_names(self.db)
+        
+        @self.route('/product_description/<int:product_id>', methods=['GET'])
+        def product_description(product_id):
+            return ProductRepository.get_product_description(self.db, product_id)
      
