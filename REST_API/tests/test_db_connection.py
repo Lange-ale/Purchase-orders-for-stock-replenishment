@@ -1,4 +1,4 @@
-from utils.db_connection import DBConnection
+from util.db_connection import DBConnection
 from conf.conf import *
 import unittest
 

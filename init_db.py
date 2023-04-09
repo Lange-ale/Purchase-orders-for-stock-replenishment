@@ -1,5 +1,5 @@
 from REST_API.conf.conf import *
-from REST_API.utils.db_connection import DBConnection
+from REST_API.util.db_connection import DBConnection
 from db.example_data import example_data, example_product_id_1
 
 # executes the queries to delete the tables if they exist and create them as defined in the ER diagram
