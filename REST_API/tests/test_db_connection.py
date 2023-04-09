@@ -12,11 +12,13 @@ class TestDBConnection(unittest.TestCase):
         self.assertIsNone(db.connect())
     
     def test_production_db_connection_failure(self):
-        db = DBConnection(production_conf)
-        db.conf['password'] = 'wrong_password'
+        wrong_conf = production_conf.copy()
+        wrong_conf['password'] = 'wrong_password'
+        db = DBConnection(wrong_conf)
         self.assertIsNotNone(db.connect())
     
     def test_testing_db_connection_failure(self):
-        db = DBConnection(testing_conf, is_testing=True)
-        db.conf['password'] = 'wrong_password'
+        wrong_conf = testing_conf.copy()
+        wrong_conf['password'] = 'wrong_password'
+        db = DBConnection(wrong_conf, is_testing=True)
         self.assertIsNotNone(db.connect())
