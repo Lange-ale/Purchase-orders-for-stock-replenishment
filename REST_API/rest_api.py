@@ -1,6 +1,7 @@
 from flask import Flask
 from util.db_connection import DBConnection
 from model.product_repository import *
+from model.discount_repository import *
 
 class REST_API(Flask):
     def __init__(self, db_conf, *args, **kwargs):
@@ -21,4 +22,9 @@ class REST_API(Flask):
         @self.route('/product_description/<int:product_id>', methods=['GET'])
         def product_description(product_id):
             return ProductRepository.get_product_description(self.db, product_id)
+        
+        @self.route('/product_discounts/<int:product_id>', methods=['GET'])
+        def product_discounts(product_id):
+            return DiscountRepository.get_stocks_discounts(self.db, product_id)
+        
      
