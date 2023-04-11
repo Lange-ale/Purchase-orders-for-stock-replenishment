@@ -1,6 +1,6 @@
 example_product_id_1 = { 
     "name": "Philips monitor 17”", 
-    "description": "A monitor with a 17” screen" 
+    "description": "A monitor with a 17” screen, this product is the example given by the problem text"
 }
     
 example_data = [
@@ -68,8 +68,8 @@ example_data = [
             "discount_percentage": 5
         } ],
         "discount_time_based": [ {
-            "date_start": "2020-09-01",
-            "date_end": "2020-09-30",
+            "date_start": "2023-09-01",
+            "date_end": "2023-09-30",
             "discount_percentage": 2
         } ]
     }

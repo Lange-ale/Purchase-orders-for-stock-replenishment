@@ -1,9 +1,9 @@
 <script>
     // Import our global CSS
-    import "$lib/global.css";
+    import "$lib/global.css"
     import { onMount } from 'svelte'
     import { themeChange } from 'theme-change'
-    import Themes from "./Themes.svelte";
+    import Themes from "./Themes.svelte"
 
     // NOTE: the element that is using one of the theme attributes must be in the DOM on mount
     onMount(() => {
@@ -12,9 +12,9 @@
     })
 </script>
 
-<div class="navbar bg-base-100">
+<div class="navbar bg-base-200">
     <div class="flex-1">
-        <a href="/" class="btn btn-ghost normal-case text-l"> Stock Replenishment </a>
+        <a href="/" class="btn btn-ghost normal-case  text-xl"> Stock Replenishment </a>
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal p-0">

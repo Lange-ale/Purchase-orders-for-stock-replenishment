@@ -7,6 +7,7 @@
             <div class="overflow-y-scroll h-64">
                 <li data-set-theme="light"><a>light</a></li>
                 <li data-set-theme="dark"><a>dark</a></li>
+                <li data-set-theme="night"><a>night</a></li>
                 <li data-set-theme="cupcake"><a>cupcake</a></li>
                 <li data-set-theme="bumblebee"><a>bumblebee</a></li>
                 <li data-set-theme="emerald"><a>emerald</a></li>
@@ -31,7 +32,6 @@
                 <li data-set-theme="business"><a>business</a></li>
                 <li data-set-theme="acid"><a>acid</a></li>
                 <li data-set-theme="lemonade"><a>lemonade</a></li>
-                <li data-set-theme="night"><a>night</a></li>
                 <li data-set-theme="coffee"><a>coffee</a></li>
                 <li data-set-theme="winter"><a>winter</a></li>
             </div>

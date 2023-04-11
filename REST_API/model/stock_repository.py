@@ -1,19 +1,24 @@
-class DiscountRepository:
+from model.product_repository import ProductRepository
+
+class StockRepository:
     @staticmethod
-    def get_stocks_discounts(db, product_id):
+    def get_stocks_discounts(db, product_id, quantity):
         sql = f"""
             SELECT supplier.name, supplier.address, supplier.phone, supplier.email, 
                    stock.id, stock.price, stock.quantity, stock.shipping_time,
                    discount_n_pcs_based.min_quantity, discount_n_pcs_based.discount_percentage,
                    discount_tot_cost_based.min_tot_cost, discount_tot_cost_based.discount_percentage, 
                    discount_time_based.date_start, discount_time_based.date_end,
-                   discount_time_based.discount_percentage
+                   discount_time_based.discount_percentage,
+                   product.description
             FROM stock
             INNER JOIN supplier ON stock.id_supplier = supplier.id
+            INNER JOIN product ON stock.id_product = product.id
             LEFT JOIN discount_n_pcs_based ON stock.id = discount_n_pcs_based.id_stock
             LEFT JOIN discount_tot_cost_based ON stock.id = discount_tot_cost_based.id_stock
             LEFT JOIN discount_time_based ON stock.id = discount_time_based.id_stock
-            WHERE stock.id_product = {product_id}
+            WHERE stock.id_product = {product_id} AND
+                  stock.quantity >= {quantity}
         """  
    
         db.cur.execute(sql)
@@ -30,6 +35,7 @@ class DiscountRepository:
                         "phone": row[2],
                         "email": row[3]
                     },
+                    "product_description": row[15],
                     "price": row[5],
                     "quantity": row[6],
                     "shipping_time": row[7],
@@ -54,6 +60,12 @@ class DiscountRepository:
                     "discount_percentage": row[14]
                 })
                 
+        stocks = list(map(list, stocks.items()))
+        stocks.sort(key=lambda x: x[0])
+        
+        if len(stocks) == 0: # if there are no stocks with the given quantity
+            stocks = [ ["-1", ProductRepository.get_product_description(db, product_id)] ]
+        
         return stocks
                 
                 
