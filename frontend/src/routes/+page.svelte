@@ -7,18 +7,18 @@
 
 <main>
     <Input />
-    {#if $id_product_selected != -1}
+    {#if $id_product_selected != -1} <!-- if a product is selected -->
         <ProductDescription />
-        {#if $stocks.length > 0 && $stocks[0][0] == -1}
+        {#if $stocks.length > 0 && $stocks[0][0] == -1} <!-- if this quantity of this product is not available -->
             <div class="alert alert-error">
                 <div class="flex-1">
-                    <label class="cursor-pointer select-none">
+                    <label class="cursor-pointer select-none"> 
                         <span class="text-xl font-bold">Error</span>
                         <span class="text-gray-600 text-xl">No stock available for this quantity</span>
                     </label>
                 </div>
             </div>
-        {:else}
+        {:else} <!-- if this quantity of this product is available display the table -->
             <Table />
         {/if}
     {/if}

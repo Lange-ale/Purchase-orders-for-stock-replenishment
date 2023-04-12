@@ -1,8 +1,9 @@
 from model.product_repository import ProductRepository
 
 class StockRepository:
+    
     @staticmethod
-    def get_stocks_discounts(db, product_id, quantity):
+    def get_stocks_discounts(db, product_id, quantity): 
         sql = f"""
             SELECT supplier.name, supplier.address, supplier.phone, supplier.email, 
                    stock.id, stock.price, stock.quantity, stock.shipping_time,
