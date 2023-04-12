@@ -10,6 +10,7 @@
 
 ### Run the project
 
+- Start the docker engine
 - Clone the repository
 - run `pip install psycopg2-binary`
 - run `docker-compose up --build`

@@ -3,8 +3,7 @@
 </script>
 
 <main>
-    <div class="flex text-xl
-    ">
+    <div class="flex text-xl">
         <p class="flex-none p-2">
             Description: 
         </p>
