@@ -14,6 +14,7 @@
 - Clone the repository
 - run `pip install psycopg2-binary`
 - run `docker-compose up --build`
+- wait that in the terminal appears the log `database system is ready to accept connections`
 - run `python init_db.py`
 - open the browser and go to `http://localhost:3000/`
 
