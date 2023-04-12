@@ -56,7 +56,7 @@
 
 ### Database
 
-I choose postgresql to make a relational.
+I choose postgresql to make a relational db.
 The database is composed by 6 tables:
 
 - supplier: it contains the info of the suppliers
@@ -135,8 +135,21 @@ Here there are the detailed columns and the referential integrity constraints of
               ON DELETE CASCADE
       );
 
+### Backend
 
-### How to run the tests
+The backend is structured in 2 layers:
+
+- the first layer is composed by the REST API written in Python with the framework Flask, it is responsible to manage the requests from the frontend and answer to them with the data provided by the second layer
+- the second layer is the model composed by the repositories responsible to manage the data in the database
+
+### Frontend
+
+The frontend is built with [Node.js](https://nodejs.org/en/) and the framework [Svelte](https://svelte.dev/), it is responsible to show the data requested to the backend and to manage the user interaction with the page.
+Svelte is a framework that compiles the code in efficient javascript code and update in real time the data in the page when the variables change.
+The css classes are provided by [DaisyUI](https://daisyui.com/) and they are a wrapper of [TailwindCSS](https://tailwindcss.com/) classes.
+
+## How to run the tests
+
 - run `pip install -r .\REST_API\requirements.txt`
 - run `python .\REST_API\app_testing.py`
 - run `python .\REST_API\run_all_tests.py`
