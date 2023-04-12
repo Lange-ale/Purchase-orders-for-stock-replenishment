@@ -22,7 +22,7 @@ class REST_API(Flask):
             return "Welcome to the REST API of the suppliers' products"
         
         @self.route('/products_names', methods=['GET'])
-        def index():
+        def products_names():
             return ProductRepository.get_all_product_names(self.db)
         
         @self.route('/stocks/<int:product_id>/<int:quantity>', methods=['GET'])
