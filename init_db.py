@@ -1,6 +1,22 @@
-from REST_API.conf.conf import *
 from REST_API.util.db_connection import DBConnection
 from db.example_data import example_data, example_product_id_1
+
+PRODUCTION_DB =  {
+    "host": "localhost",
+    "database": "db",
+    "user": "user",
+    "password": "password",
+    "port": "54320"
+}
+
+TEST_DB =  {
+    "host": "localhost",
+    "database": "db-test",
+    "user": "test",
+    "password": "test",
+    "port": "54321"
+}
+
 
 # executes the queries to delete the tables if they exist and create them as defined in the ER diagram
 def delete_and_create_tables(conn): 
@@ -117,7 +133,7 @@ def insert_example_data(conn):
     conn.commit()
     
 
-production_db = DBConnection(production_conf)
+production_db = DBConnection(PRODUCTION_DB)
 err = production_db.connect()
 if err:
     print("Error connecting to the production database")
@@ -125,7 +141,7 @@ if err:
     exit(1)
 print("Connected to the production database")
 
-testing_db = DBConnection(testing_conf, is_testing=True)
+testing_db = DBConnection(TEST_DB)
 err = testing_db.connect()
 if err:
     print("Error connecting to the testing database")

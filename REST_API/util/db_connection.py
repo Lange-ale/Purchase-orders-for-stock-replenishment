@@ -1,7 +1,7 @@
 from psycopg2 import connect
 
 class DBConnection:
-    def __init__(self, conf, is_testing=False):
+    def __init__(self, conf):
         self.conf = conf
         
     def connect(self): # connect to the database and return the error if any
