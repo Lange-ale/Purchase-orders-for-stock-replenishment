@@ -1,5 +1,21 @@
 # Purchase orders for stock replenishment
 
+## How to run the project
+
+### Requirements
+
+- [docker](https://docs.docker.com/get-docker/)
+- docker-compose
+- Python
+
+### Run the project
+
+- Clone the repository
+- run `pip install psycopg2-binary`
+- run `docker-compose up --build`
+- run `python init_db.py`
+- open the browser and go to `http://localhost:3000/`
+
 ## Functional analysis
 
 ### Narrative

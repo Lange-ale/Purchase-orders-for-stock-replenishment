@@ -2,18 +2,24 @@ from flask import Flask
 from util.db_connection import DBConnection
 from model.product_repository import *
 from model.stock_repository import *
+from time import sleep
 
 class REST_API(Flask):
     def __init__(self, db_conf, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.db = DBConnection(db_conf)
         err = self.db.connect()
-        if err:
+        while err is not None:
             print("Error connecting to the database")
             print(err)
-            exit(1)
+            sleep(1)
+            err = self.db.connect() 
+
         print("Connected to the database")
         
+        @self.route('/')
+        def index():
+            return "Welcome to the REST API of the suppliers' products"
         
         @self.route('/products_names', methods=['GET'])
         def index():
