@@ -134,3 +134,9 @@ Here there are the detailed columns and the referential integrity constraints of
               REFERENCES stock (id)
               ON DELETE CASCADE
       );
+
+
+### How to run the tests
+- run `pip install -r .\REST_API\requirements.txt`
+- run `python .\REST_API\app_testing.py`
+- run `python .\REST_API\run_all_tests.py`
