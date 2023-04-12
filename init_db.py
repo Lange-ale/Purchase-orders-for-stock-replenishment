@@ -125,7 +125,7 @@ if err:
     exit(1)
 print("Connected to the production database")
 
-testing_db = DBConnection(production_conf)
+testing_db = DBConnection(testing_conf)
 err = testing_db.connect()
 if err:
     print("Error connecting to the testing database")
